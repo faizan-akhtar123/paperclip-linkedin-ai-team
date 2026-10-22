@@ -1,0 +1,3 @@
+Cheap vs strong model: where do you draw the line?
+
+Today I learned: subagents can run on Haiku for cheap reading jobs. One skill can serve many agents. And Paperclip keeps its own skill copy, so import again after edits.

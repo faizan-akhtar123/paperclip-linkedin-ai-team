@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Post 04 carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&display=block" rel="stylesheet">
+<style>
+  @page { size: 1080px 1080px; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #f3f0e8; }
+  .slide { width: 1080px; height: 1080px; position: relative; overflow: hidden; page-break-after: always; break-after: page; }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  svg { display: block; }
+  .t2b { font-family: 'Caveat', cursive; font-weight: 700; fill: #2b2b2b; }
+  .thb { font-family: 'Kalam', cursive; font-weight: 400; fill: #4a4a4a; }
+  .th  { font-family: 'Kalam', cursive; font-weight: 300; fill: #7c7c7c; }
+  .s2b { fill: none; stroke: #2e2e2e; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+  .shb { fill: none; stroke: #555; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .sh  { fill: none; stroke: #8f8f8f; stroke-width: 1.6; stroke-linecap: round; }
+  .dash { stroke-dasharray: 10 9; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- graphite: wobble the line, then eat into it with grain so it looks like pencil on paper -->
+    <filter id="pencil" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="wob"/>
+      <feDisplacementMap in="SourceGraphic" in2="wob" scale="3.2" xChannelSelector="R" yChannelSelector="G" result="wobbled"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="8" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.75" result="grainA"/>
+      <feComposite in="wobbled" in2="grainA" operator="in"/>
+    </filter>
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" seed="2"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.33  0 0 0 0 0.3  0 0 0 0.09 0"/>
+    </filter>
+    <!-- H pencil: light single hatch; 2B: dark cross hatch -->
+    <pattern id="hatchH" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#9c9c9c" stroke-width="1.3"/>
+    </pattern>
+    <pattern id="hatchB" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#555" stroke-width="1.6"/>
+      <line x1="0" y1="4" x2="8" y2="4" stroke="#6a6a6a" stroke-width="1.2"/>
+    </pattern>
+    <g id="bot">
+      <line class="shb" x1="0" y1="-62" x2="0" y2="-44"/>
+      <circle class="shb" cx="0" cy="-66" r="5"/>
+      <rect class="s2b" x="-40" y="-44" width="80" height="66" rx="12"/>
+      <circle cx="-15" cy="-14" r="7" fill="#3a3a3a"/>
+      <circle cx="15" cy="-14" r="7" fill="#3a3a3a"/>
+      <path class="shb" d="M-14 6 Q0 14 14 6"/>
+    </g>
+    <g id="tick"><path class="s2b" d="M-14 0 L-4 12 L16 -14"/></g>
+    <g id="swipe">
+      <text class="thb" x="0" y="0" font-size="30" text-anchor="end">swipe</text>
+      <path class="shb" d="M14 -10 L74 -10 M60 -22 L76 -10 L60 2"/>
+    </g>
+    <g id="paperbg">
+      <rect width="1080" height="1080" fill="#f3f0e8"/>
+      <rect width="1080" height="1080" filter="url(#paper)"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- 1. Cover -->
+<div class="slide" id="s1"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="th" x="90" y="130" font-size="32">AI agents and the human review point</text>
+    <text class="t2b" x="90" y="250" font-size="96">82% say they can keep</text>
+    <text class="t2b" x="90" y="345" font-size="96">their AI agents in check.</text>
+    <text class="t2b" x="90" y="460" font-size="96">Only 5% can back it up.</text>
+    <path class="shb" d="M92 482 Q420 470 800 490"/>
+    <!-- two bars -->
+    <rect x="160" y="600" width="660" height="110" fill="url(#hatchB)" opacity=".45"/>
+    <rect class="s2b" x="160" y="600" width="660" height="110"/>
+    <text class="t2b" x="850" y="675" font-size="64">82%</text>
+    <text class="thb" x="180" y="760" font-size="32">say they can keep pace</text>
+    <rect x="160" y="800" width="40" height="110" fill="url(#hatchB)" opacity=".6"/>
+    <rect class="s2b" x="160" y="800" width="40" height="110"/>
+    <text class="t2b" x="230" y="875" font-size="64">5%</text>
+    <text class="thb" x="340" y="870" font-size="32">have the controls in place</text>
+    <use href="#swipe" x="900" y="1010"/>
+    <text class="th" x="90" y="1010" font-size="28">1 / 5</text>
+  </g>
+</svg></div>
+
+<!-- 2. The survey -->
+<div class="slide" id="s2"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="t2b" x="90" y="170" font-size="84">Where this comes from</text>
+    <path class="shb" d="M92 192 Q360 182 700 198"/>
+    <text class="thb" x="90" y="280" font-size="40">Research by OutSystems with CIO Dive and KPMG,</text>
+    <text class="thb" x="90" y="335" font-size="40">released 16 October 2026. 858 executives.</text>
+    <!-- clipboard -->
+    <rect x="300" y="420" width="480" height="470" rx="16" fill="url(#hatchH)" opacity=".4"/>
+    <rect class="s2b" x="300" y="420" width="480" height="470" rx="16"/>
+    <rect class="s2b" x="460" y="395" width="160" height="50" rx="10" fill="#f3f0e8"/>
+    <text class="t2b" x="540" y="510" font-size="46" text-anchor="middle">The 5% have all three:</text>
+    <use href="#tick" x="370" y="590"/>
+    <text class="thb" x="410" y="602" font-size="38">automated controls</text>
+    <use href="#tick" x="370" y="680"/>
+    <text class="thb" x="410" y="692" font-size="38">audit trails</text>
+    <use href="#tick" x="370" y="770"/>
+    <text class="thb" x="410" y="782" font-size="38">formal human review</text>
+    <text class="th" x="540" y="950" font-size="30" text-anchor="middle">Confidence is high. Controls are rare.</text>
+    <text class="th" x="90" y="1010" font-size="28">2 / 5</text>
+  </g>
+</svg></div>
+
+<!-- 3. My setup -->
+<div class="slide" id="s3"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="t2b" x="90" y="170" font-size="84">My small AI team</text>
+    <path class="shb" d="M92 192 Q300 182 560 196"/>
+    <text class="thb" x="90" y="265" font-size="38">Built in Paperclip with Claude Code, for my LinkedIn.</text>
+    <text class="thb" x="90" y="320" font-size="38">They never post, like or comment.</text>
+    <use href="#bot" x="190" y="480"/>
+    <text class="thb" x="190" y="550" font-size="30" text-anchor="middle">Strategist</text>
+    <use href="#bot" x="190" y="690"/>
+    <text class="thb" x="190" y="760" font-size="30" text-anchor="middle">Researcher</text>
+    <use href="#bot" x="190" y="900"/>
+    <text class="thb" x="190" y="970" font-size="30" text-anchor="middle">Writer</text>
+    <text class="t2b" x="300" y="690" font-size="44">research + draft</text>
+    <path class="shb" d="M300 715 L560 715 M540 700 L562 715 L540 730"/>
+    <!-- review gate -->
+    <rect x="590" y="560" width="190" height="300" fill="url(#hatchB)" opacity=".35"/>
+    <rect class="s2b" x="590" y="560" width="190" height="300"/>
+    <text class="t2b" x="685" y="690" font-size="46" text-anchor="middle">I review</text>
+    <text class="thb" x="685" y="740" font-size="30" text-anchor="middle">every draft</text>
+    <path class="shb" d="M800 715 L900 715 M880 700 L902 715 L880 730"/>
+    <text class="t2b" x="960" y="700" font-size="40" text-anchor="middle">I post</text>
+    <text class="thb" x="960" y="745" font-size="30" text-anchor="middle">by hand</text>
+    <text class="th" x="990" y="1010" font-size="28" text-anchor="end">3 / 5</text>
+  </g>
+</svg></div>
+
+<!-- 4. The catch -->
+<div class="slide" id="s4"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="t2b" x="90" y="170" font-size="84">The review already paid off</text>
+    <path class="shb" d="M92 192 Q420 180 860 198"/>
+    <!-- note card -->
+    <rect x="110" y="270" width="590" height="440" rx="10" fill="#f6f4ee"/>
+    <rect x="110" y="270" width="590" height="440" rx="10" fill="url(#hatchH)" opacity=".25"/>
+    <rect class="s2b" x="110" y="270" width="590" height="440" rx="10"/>
+    <text class="t2b" x="150" y="345" font-size="44">Trend note, first run</text>
+    <path class="sh" d="M150 420 L650 420 M150 480 L610 480"/>
+    <text class="thb" x="150" y="560" font-size="34">an untested project, used</text>
+    <text class="thb" x="150" y="610" font-size="34">as proven experience</text>
+    <path class="s2b" d="M140 548 Q340 538 530 550"/><path class="s2b" d="M140 598 Q300 590 460 600"/>
+    <!-- magnifier -->
+    <circle cx="840" cy="560" r="105" fill="url(#hatchH)" opacity=".3"/>
+    <circle class="s2b" cx="840" cy="560" r="105"/>
+    <path class="s2b" d="M915 635 L1000 720" stroke-width="9"/>
+    <text class="t2b" x="840" y="575" font-size="48" text-anchor="middle">caught</text>
+    <text class="t2b" x="90" y="820" font-size="58">It read well. It was wrong.</text>
+    <text class="thb" x="90" y="890" font-size="38">I caught it at review, and it is now a team rule.</text>
+    <text class="th" x="90" y="1010" font-size="28">4 / 5</text>
+  </g>
+</svg></div>
+
+<!-- 5. Question + open to work -->
+<div class="slide" id="s5"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="t2b" x="90" y="140" font-size="70">Nothing irreversible happened,</text>
+    <text class="t2b" x="90" y="218" font-size="70">because the agents only draft.</text>
+    <text class="thb" x="92" y="290" font-size="34">Not a safety add on. The whole setup hangs off it.</text>
+    <rect x="90" y="335" width="670" height="105" fill="url(#hatchB)" opacity=".45"/>
+    <rect class="s2b" x="90" y="335" width="670" height="105"/>
+    <rect x="760" y="335" width="230" height="105" fill="url(#hatchH)" opacity=".5"/>
+    <rect class="s2b" x="760" y="335" width="230" height="105"/>
+    <text class="t2b" x="425" y="405" font-size="50" text-anchor="middle">80% AI drafts</text>
+    <text class="t2b" x="875" y="405" font-size="46" text-anchor="middle">20% me</text>
+    <text class="t2b" x="540" y="535" font-size="56" text-anchor="middle">Where is your human review point,</text>
+    <text class="t2b" x="540" y="605" font-size="56" text-anchor="middle">and what has it caught so far?</text>
+    <text class="thb" x="540" y="660" font-size="30" text-anchor="middle">Tell me in the comments.</text>
+    <path class="sh" d="M90 710 L990 710"/>
+    <rect x="90" y="740" width="900" height="200" rx="14" fill="url(#hatchH)" opacity=".3"/>
+    <rect class="shb" x="90" y="740" width="900" height="200" rx="14"/>
+    <text class="t2b" x="540" y="800" font-size="40" text-anchor="middle">Open to full time, part time and freelance work</text>
+    <text class="thb" x="540" y="850" font-size="28" text-anchor="middle">in AI automation, AI operations and business process automation.</text>
+    <text class="thb" x="540" y="905" font-size="32" text-anchor="middle">Have a boring, repetitive task to automate? Get in touch.</text>
+    <text class="thb" x="90" y="1015" font-size="30">Faizan Akhtar</text>
+    <text class="th" x="990" y="1015" font-size="26" text-anchor="end">AI automation for boring, repetitive work</text>
+  </g>
+</svg></div>
+
+<script>
+  // ?s=N shows only slide N, so each slide can be screenshotted as its own PNG
+  var n = new URLSearchParams(location.search).get('s');
+  if (n) document.querySelectorAll('.slide').forEach(function (el) { if (el.id !== 's' + n) el.style.display = 'none'; });
+</script>
+</body>
+</html>

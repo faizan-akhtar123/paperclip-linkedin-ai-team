@@ -1,0 +1,21 @@
+82 percent of executives say they can keep their AI agents in check. Only 5 percent have the controls to back it up.
+
+That is from research OutSystems released with CIO Dive and KPMG on 16 October 2026, covering 858 executives. The 5 percent are the ones with automated controls, audit trails and formal human review in place.
+
+I run a small AI team for my LinkedIn, built in Paperclip with Claude Code. Three agents: a Content Strategist, a Trend Researcher and a Writer. They research and draft. They never post, like or comment. I review everything and post by hand.
+
+That review has already paid off.
+
+The Trend Researcher's first note presented an untested project as if it were proven experience. It read well. It was wrong. I caught it at review, and it is now a team rule.
+
+Nothing irreversible happened, because the agents only draft. The review point is the reason.
+
+I did not bolt it on at the end as a safety feature. The whole setup hangs off it.
+
+If you work with AI agents, where is your human review point, and what has it caught so far?
+
+I am looking for full time, part time and freelance opportunities in AI automation, AI operations and business process automation.
+
+If you have any boring, repetitive task to automate, you can get in touch with me.
+
+#AIAgents #ClaudeCode #Paperclip

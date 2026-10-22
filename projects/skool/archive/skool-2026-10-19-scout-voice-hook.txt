@@ -1,0 +1,33 @@
+Build log: a scout agent, a shared voice skill and a hook fix
+
+Today was a building day with Claude Code. Here is what I shipped, what I learned, and one thing that did not work. Some of it might save you time.
+
+What I built
+
+A daily engagement skill. It reads LinkedIn posts from the last 24 hours and picks three active posts on AI automation. A Haiku subagent does the scouting because it is cheap. Its tools are read only, with no click tool, so it cannot like, comment or post. The main model writes the short comment drafts, and I post them by hand.
+
+A voice skill for my Paperclip agents. My writing rules and the only facts I am allowed to use live in one file, and the skill points to that file instead of copying the facts into every agent. When a fact changes, I edit one place.
+
+A session close skill. It updates the READMEs, the decision log and the memory notes, then writes a session log. That log is what the next draft gets written from.
+
+What I learned
+
+Haiku is good for the high volume, boring part (reading and listing). Let the cheap model find things and let the stronger model judge them.
+
+Give a subagent only the tools it needs. A scout with no click tool is safer than a scout you just trust to behave.
+
+Keep facts in one file. Agents that copy facts drift apart fast.
+
+Global hooks affect everything you run. My reminder hook was also running during Paperclip agent runs, so I made it skip those runs when an agent flag is set.
+
+What did not work
+
+I wanted direct post links inside the engagement list. Getting them meant running a script on the LinkedIn page, and I said no to that. For now I get the author name and the search page, and the links wait for a safer method.
+
+What's next
+
+A Trend Researcher agent for the weekly research, then a Writer agent, with budgets set before any scheduled runs. I am keeping the team small so it stays inside the Pro plan limit.
+
+A reply check on the comments I posted today, to see which ones get answers.
+
+Question for you: when you build a helper agent, do you give it write access, or only read tools, and why?

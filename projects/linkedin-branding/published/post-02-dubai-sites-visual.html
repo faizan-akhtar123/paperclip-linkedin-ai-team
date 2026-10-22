@@ -1,0 +1,71 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;padding:0}
+  body{width:1080px;height:1350px;background:#f7f4ec;color:#23262b;
+       font-family:"Ink Free","Segoe Print",cursive;position:relative;overflow:hidden}
+  /* faint notebook lines */
+  body:before{content:"";position:absolute;inset:0;
+       background:repeating-linear-gradient(#f7f4ec 0 49px,#e6e1d4 49px 50px);opacity:.7}
+  .wrap{position:relative;padding:70px 70px 0}
+  h1{font-size:62px;line-height:1.1;margin:0 0 6px;font-weight:700;transform:rotate(-1deg)}
+  .sub{font-size:30px;color:#5b5f66;margin:0 0 36px}
+  .cols{display:flex;gap:44px}
+  .col{flex:1;display:flex;flex-direction:column;align-items:center}
+  .label{font-family:"Segoe UI",sans-serif;font-weight:700;letter-spacing:4px;font-size:22px;
+         color:#5b5f66;margin-bottom:22px}
+  .box{width:100%;box-sizing:border-box;text-align:center;font-size:31px;padding:16px 14px;
+       border:3px solid #23262b;background:#fffdf7;
+       border-radius:255px 18px 225px 18px/18px 225px 18px 255px}
+  .r1{transform:rotate(-1.2deg)} .r2{transform:rotate(.9deg)} .r3{transform:rotate(-.6deg)} .r4{transform:rotate(1.3deg)}
+  .site{align-items:flex-start} .site .box{width:80%;font-size:28px;padding:13px 10px;white-space:nowrap} .site .arrow{width:80%;text-align:center;margin:16px 0}
+  .bad{border-color:#b23a2e;color:#b23a2e;font-weight:700}
+  .arrow{font-size:44px;line-height:1;margin:8px 0;color:#23262b}
+  .tall .arrow{margin:28px 0}
+  .note{position:absolute;left:56%;top:6px;text-align:left;white-space:nowrap;z-index:2;font-size:28px;color:#b23a2e;transform:rotate(-6deg);line-height:1.15}
+  .fix{position:relative;margin:44px 0 0;padding:30px 36px;font-size:36px;line-height:1.3;
+       border:3px solid #23262b;border-radius:18px 225px 18px 255px/255px 18px 225px 18px;
+       background:linear-gradient(transparent 0,transparent 0) ;transform:rotate(-.5deg)}
+  .hl{background:linear-gradient(transparent 55%,#f3d34a 55%,#f3d34a 92%,transparent 92%);padding:0 4px}
+  .sig{position:absolute;right:70px;bottom:26px;font-family:"Segoe UI",sans-serif;font-size:22px;color:#7a7e85}
+</style></head>
+<body>
+<div class="wrap">
+  <h1>The process on paper<br>vs the process on site</h1>
+  <p class="sub">What 4 years of HVAC coordination in Dubai taught me</p>
+
+  <div class="cols">
+    <div class="col tall">
+      <div class="label">ON PAPER</div>
+      <div class="box r1">Drawing issued</div>
+      <div class="arrow">&#8595;</div>
+      <div class="box r2">Team builds it</div>
+      <div class="arrow">&#8595;</div>
+      <div class="box r3">Inspection</div>
+      <div class="arrow">&#8595;</div>
+      <div class="box r4">Done</div>
+    </div>
+
+    <div class="col site" style="position:relative">
+      <div class="label">ON SITE</div>
+      <div class="box r2">Drawing revised</div>
+      <div class="arrow">&#8595;</div>
+      <div class="box r1">Site still has the old one</div>
+      <div class="arrow">&#8595;</div>
+      <div class="box bad r3">Duct clashes with pipe</div>
+      <div class="arrow" style="position:relative">&#8595;<span class="note">&#8592; nobody&#8217;s fault</span></div>
+      <div class="box r4">Work stops. Rework.</div>
+      <div class="arrow">&#8595;</div>
+      <div class="box r1">Done, but late</div>
+    </div>
+  </div>
+
+
+  <div class="fix">
+    The fix was not better engineering.<br>
+    It was <span class="hl">one daily record:</span><br>
+    what changed, who needs to know, by when.
+  </div>
+</div>
+<div class="sig">Faizan Akhtar</div>
+</body></html>

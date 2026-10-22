@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Post 03 carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Kalam:wght@300;400&display=block" rel="stylesheet">
+<style>
+  @page { size: 1080px 1080px; margin: 0; }
+  html, body { margin: 0; padding: 0; background: #f3f0e8; }
+  .slide { width: 1080px; height: 1080px; position: relative; overflow: hidden; page-break-after: always; break-after: page; }
+  .slide:last-child { page-break-after: auto; break-after: auto; }
+  svg { display: block; }
+  .t2b { font-family: 'Caveat', cursive; font-weight: 700; fill: #2b2b2b; }
+  .thb { font-family: 'Kalam', cursive; font-weight: 400; fill: #4a4a4a; }
+  .th  { font-family: 'Kalam', cursive; font-weight: 300; fill: #7c7c7c; }
+  .s2b { fill: none; stroke: #2e2e2e; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+  .shb { fill: none; stroke: #555; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .sh  { fill: none; stroke: #8f8f8f; stroke-width: 1.6; stroke-linecap: round; }
+  .dash { stroke-dasharray: 10 9; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <!-- graphite: wobble the line, then eat into it with grain so it looks like pencil on paper -->
+    <filter id="pencil" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="3" result="wob"/>
+      <feDisplacementMap in="SourceGraphic" in2="wob" scale="3.2" xChannelSelector="R" yChannelSelector="G" result="wobbled"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="8" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.2 1.75" result="grainA"/>
+      <feComposite in="wobbled" in2="grainA" operator="in"/>
+    </filter>
+    <filter id="paper" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" seed="2"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.33  0 0 0 0 0.3  0 0 0 0.09 0"/>
+    </filter>
+    <!-- H pencil: light single hatch; 2B: dark cross hatch -->
+    <pattern id="hatchH" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="#9c9c9c" stroke-width="1.3"/>
+    </pattern>
+    <pattern id="hatchB" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(40)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#555" stroke-width="1.6"/>
+      <line x1="0" y1="4" x2="8" y2="4" stroke="#6a6a6a" stroke-width="1.2"/>
+    </pattern>
+    <g id="bot">
+      <line class="shb" x1="0" y1="-62" x2="0" y2="-44"/>
+      <circle class="shb" cx="0" cy="-66" r="5"/>
+      <rect class="s2b" x="-40" y="-44" width="80" height="66" rx="12"/>
+      <circle cx="-15" cy="-14" r="7" fill="#3a3a3a"/>
+      <circle cx="15" cy="-14" r="7" fill="#3a3a3a"/>
+      <path class="shb" d="M-14 6 Q0 14 14 6"/>
+    </g>
+    <g id="tick"><path class="s2b" d="M-14 0 L-4 12 L16 -14"/></g>
+    <g id="swipe">
+      <text class="thb" x="0" y="0" font-size="30" text-anchor="end">swipe</text>
+      <path class="shb" d="M14 -10 L74 -10 M60 -22 L76 -10 L60 2"/>
+    </g>
+    <g id="paperbg">
+      <rect width="1080" height="1080" fill="#f3f0e8"/>
+      <rect width="1080" height="1080" filter="url(#paper)"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- 1. Cover -->
+<div class="slide" id="s1"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="th" x="90" y="130" font-size="32">Building in public: Paperclip + Claude Code</text>
+    <text class="t2b" x="90" y="250" font-size="92">The first problem</text>
+    <text class="t2b" x="90" y="345" font-size="92">in my AI company</text>
+    <text class="t2b" x="90" y="440" font-size="92">was a space in my name.</text>
+    <path class="shb" d="M92 462 Q400 452 760 470" />
+    <!-- laptop -->
+    <rect x="200" y="560" width="680" height="330" rx="18" fill="url(#hatchH)" opacity=".55"/>
+    <rect class="s2b" x="200" y="560" width="680" height="330" rx="18"/>
+    <rect class="shb" x="228" y="588" width="624" height="274" rx="8" fill="#f6f4ee"/>
+    <path class="s2b" d="M140 920 L940 920 L900 890 L180 890 Z"/>
+    <text class="thb" x="262" y="680" font-size="40">C:\Users\FAIZAN</text>
+    <text class="thb" x="640" y="680" font-size="40">AKHTAR\</text>
+    <ellipse class="s2b" cx="601" cy="667" rx="22" ry="40"/>
+    <path class="shb" d="M600 720 Q660 790 700 800"/>
+    <path class="shb" d="M684 786 L702 801 L680 808"/>
+    <text class="t2b" x="560" y="840" font-size="44">this one space</text>
+    <use href="#swipe" x="900" y="1000"/>
+    <text class="th" x="90" y="1000" font-size="28">1 / 6</text>
+  </g>
+</svg></div>
+
+<!-- 2. What is Paperclip -->
+<div class="slide" id="s2"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="t2b" x="90" y="170" font-size="84">What is Paperclip?</text>
+    <path class="shb" d="M92 192 Q330 182 600 196"/>
+    <text class="thb" x="90" y="270" font-size="40">An open source tool that runs</text>
+    <text class="thb" x="90" y="325" font-size="40">a team of AI agents like a small company.</text>
+    <!-- brain cloud -->
+    <path d="M370 470 Q350 410 420 400 Q450 350 520 375 Q580 340 630 390 Q710 390 700 460 Q740 510 670 535 L420 535 Q340 530 370 470 Z" fill="url(#hatchB)" opacity=".35"/>
+    <path class="s2b" d="M370 470 Q350 410 420 400 Q450 350 520 375 Q580 340 630 390 Q710 390 700 460 Q740 510 670 535 L420 535 Q340 530 370 470 Z"/>
+    <text class="t2b" x="540" y="465" font-size="48" text-anchor="middle">Claude Code</text>
+    <text class="thb" x="540" y="510" font-size="30" text-anchor="middle">the brain</text>
+    <path class="shb" d="M460 540 L250 700"/>
+    <path class="shb" d="M540 540 L540 700"/>
+    <path class="shb" d="M620 540 L830 700"/>
+    <use href="#bot" x="250" y="780"/>
+    <use href="#bot" x="540" y="780"/>
+    <use href="#bot" x="830" y="780"/>
+    <text class="t2b" x="250" y="870" font-size="44" text-anchor="middle">a role</text>
+    <text class="t2b" x="540" y="870" font-size="44" text-anchor="middle">a manager</text>
+    <text class="t2b" x="830" y="870" font-size="44" text-anchor="middle">its own tasks</text>
+    <text class="th" x="540" y="930" font-size="30" text-anchor="middle">every agent gets all three</text>
+    <use href="#swipe" x="900" y="1000"/>
+    <text class="th" x="90" y="1000" font-size="28">2 / 6</text>
+  </g>
+</svg></div>
+
+<!-- 3. The team -->
+<div class="slide" id="s3"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="t2b" x="90" y="160" font-size="80">LinkedIn Brand Studio</text>
+    <text class="thb" x="92" y="215" font-size="36">my AI company, day 5</text>
+    <!-- me -->
+    <rect x="390" y="265" width="300" height="100" rx="14" fill="url(#hatchB)" opacity=".3"/>
+    <rect class="s2b" x="390" y="265" width="300" height="100" rx="14"/>
+    <text class="t2b" x="540" y="330" font-size="46" text-anchor="middle">Me (the boss)</text>
+    <path class="shb" d="M540 365 L540 425"/>
+    <!-- strategist -->
+    <rect x="330" y="425" width="420" height="110" rx="14" fill="url(#hatchH)" opacity=".7"/>
+    <rect class="s2b" x="330" y="425" width="420" height="110" rx="14"/>
+    <text class="t2b" x="520" y="495" font-size="46" text-anchor="middle">Content Strategist</text>
+    <use href="#tick" x="712" y="480"/>
+    <path class="shb" d="M540 535 L540 580 M290 580 L790 580 M290 580 L290 625 M790 580 L790 625"/>
+    <!-- researcher -->
+    <rect x="110" y="625" width="370" height="110" rx="14" fill="url(#hatchH)" opacity=".7"/>
+    <rect class="s2b" x="110" y="625" width="370" height="110" rx="14"/>
+    <text class="t2b" x="280" y="695" font-size="44" text-anchor="middle">Trend Researcher</text>
+    <use href="#tick" x="448" y="680"/>
+    <!-- writer, not hired yet -->
+    <rect class="s2b dash" x="605" y="625" width="370" height="110" rx="14"/>
+    <text class="t2b" x="790" y="695" font-size="44" text-anchor="middle" opacity=".7">Writer</text>
+    <text class="th" x="790" y="775" font-size="32" text-anchor="middle">hiring next</text>
+    <text class="th" x="280" y="775" font-size="32" text-anchor="middle">hired</text>
+    <!-- first job note -->
+    <path class="shb" d="M120 840 L960 840"/>
+    <text class="thb" x="120" y="905" font-size="38">First real job done: 3 post ideas.</text>
+    <text class="thb" x="120" y="955" font-size="38">Two of them became my first two posts.</text>
+    <use href="#swipe" x="900" y="1015"/>
+    <text class="th" x="90" y="1015" font-size="28">3 / 6</text>
+  </g>
+</svg></div>
+
+<!-- 4. What broke -->
+<div class="slide" id="s4"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="t2b" x="90" y="160" font-size="84">What broke</text>
+    <path class="shb" d="M92 182 Q250 174 420 186"/>
+    <!-- terminal -->
+    <rect x="90" y="230" width="900" height="250" rx="14" fill="url(#hatchB)" opacity=".22"/>
+    <rect class="s2b" x="90" y="230" width="900" height="250" rx="14"/>
+    <path class="shb" d="M90 285 L990 285"/>
+    <circle class="shb" cx="125" cy="258" r="9"/><circle class="shb" cx="155" cy="258" r="9"/><circle class="shb" cx="185" cy="258" r="9"/>
+    <text class="thb" x="130" y="355" font-size="40">&gt; test agent</text>
+    <text class="t2b" x="130" y="430" font-size="56">probe failed</text>
+    <path class="s2b" d="M460 395 L500 435 M500 395 L460 435"/>
+    <!-- cause -->
+    <text class="thb" x="90" y="560" font-size="38">The cause, after a lot of digging:</text>
+    <text class="t2b" x="90" y="640" font-size="58">C:\Users\FAIZAN</text>
+    <text class="t2b" x="530" y="640" font-size="58">AKHTAR\</text>
+    <ellipse class="s2b" cx="491" cy="622" rx="22" ry="44"/>
+    <text class="thb" x="90" y="715" font-size="38">Fix: one PATH change. Then it worked.</text>
+    <!-- bonus bug -->
+    <path class="sh" d="M90 770 L990 770"/>
+    <circle cx="160" cy="880" r="56" fill="url(#hatchH)" opacity=".8"/>
+    <circle class="s2b" cx="160" cy="880" r="56"/>
+    <path class="s2b" d="M160 880 L160 845 M160 880 L188 895"/>
+    <text class="t2b" x="250" y="855" font-size="44">Bonus bug: my neck stretch reminder</text>
+    <text class="t2b" x="250" y="910" font-size="44">ran inside every agent run too,</text>
+    <text class="thb" x="250" y="960" font-size="34">quietly using my Claude quota. Fixed.</text>
+    <use href="#swipe" x="900" y="1020"/>
+    <text class="th" x="90" y="1020" font-size="28">4 / 6</text>
+  </g>
+</svg></div>
+
+<!-- 5. Rules -->
+<div class="slide" id="s5"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="t2b" x="90" y="160" font-size="84">Rules for my AI team</text>
+    <path class="shb" d="M92 182 Q380 172 700 188"/>
+    <rect class="s2b" x="100" y="270" width="64" height="64" rx="6"/><use href="#tick" x="132" y="302"/>
+    <text class="t2b" x="200" y="318" font-size="58">They draft. I post.</text>
+    <text class="thb" x="200" y="375" font-size="34">No posting, liking or commenting on LinkedIn. Ever.</text>
+    <rect class="s2b" x="100" y="480" width="64" height="64" rx="6"/><use href="#tick" x="132" y="512"/>
+    <text class="t2b" x="200" y="528" font-size="58">One file of real facts.</text>
+    <text class="thb" x="200" y="585" font-size="34">They are not allowed to invent numbers.</text>
+    <rect class="s2b" x="100" y="690" width="64" height="64" rx="6"/><use href="#tick" x="132" y="722"/>
+    <text class="t2b" x="200" y="738" font-size="58">Small limits.</text>
+    <text class="thb" x="200" y="795" font-size="34">Claude Pro plan: short runs, no automatic schedule yet.</text>
+    <!-- pencil drawing -->
+    <g transform="translate(700 930) rotate(-18)">
+      <rect x="0" y="-18" width="250" height="36" fill="url(#hatchH)"/>
+      <rect class="s2b" x="0" y="-18" width="250" height="36"/>
+      <path class="s2b" d="M0 -18 L-50 0 L0 18"/>
+      <path d="M-50 0 L-34 -6 L-34 6 Z" fill="#2e2e2e"/>
+      <text class="th" x="120" y="10" font-size="24" text-anchor="middle">HB</text>
+    </g>
+    <use href="#swipe" x="900" y="1020"/>
+    <text class="th" x="90" y="1020" font-size="28">5 / 6</text>
+  </g>
+</svg></div>
+
+<!-- 6. 80/20 + question -->
+<div class="slide" id="s6"><svg width="1080" height="1080" viewBox="0 0 1080 1080">
+  <use href="#paperbg"/>
+  <g filter="url(#pencil)">
+    <text class="t2b" x="90" y="170" font-size="80">Being the "agent boss"</text>
+    <text class="thb" x="92" y="235" font-size="38">is less about prompts and more about</text>
+    <text class="thb" x="92" y="290" font-size="38">setting limits and checking the work.</text>
+    <!-- 80/20 bar -->
+    <rect x="90" y="370" width="670" height="150" fill="url(#hatchB)" opacity=".45"/>
+    <rect class="s2b" x="90" y="370" width="670" height="150"/>
+    <rect x="760" y="370" width="230" height="150" fill="url(#hatchH)" opacity=".5"/>
+    <rect class="s2b" x="760" y="370" width="230" height="150"/>
+    <text class="t2b" x="425" y="465" font-size="58" text-anchor="middle">80% AI</text>
+    <text class="t2b" x="875" y="465" font-size="54" text-anchor="middle">20% me</text>
+    <text class="thb" x="425" y="580" font-size="32" text-anchor="middle">research, drafting, the boring repeats</text>
+    <text class="thb" x="875" y="580" font-size="32" text-anchor="middle">judgment</text>
+    <path class="sh" d="M90 650 L990 650"/>
+    <text class="t2b" x="540" y="755" font-size="62" text-anchor="middle">What boring task would you</text>
+    <text class="t2b" x="540" y="830" font-size="62" text-anchor="middle">hand to an AI teammate first?</text>
+    <text class="thb" x="540" y="905" font-size="32" text-anchor="middle">Tell me in the comments.</text>
+    <text class="thb" x="90" y="1010" font-size="30">Faizan Akhtar</text>
+    <text class="th" x="990" y="1010" font-size="26" text-anchor="end">AI automation for boring, repetitive work</text>
+  </g>
+</svg></div>
+
+<script>
+  // ?s=N shows only slide N, so each slide can be screenshotted as its own PNG
+  var n = new URLSearchParams(location.search).get('s');
+  if (n) document.querySelectorAll('.slide').forEach(function (el) { if (el.id !== 's' + n) el.style.display = 'none'; });
+</script>
+</body>
+</html>

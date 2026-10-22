@@ -1,0 +1,19 @@
+I built a client acquisition system with Claude Code.
+
+It has not sent a single email yet.
+
+Here is what it does. It finds businesses in a chosen niche and city, researches each one, spots work that looks repetitive and manual, finds the person who makes decisions, and drafts a first email that asks a question instead of pitching.
+
+Then it stops.
+
+Sending is my job. So is everything after a reply: the call, mapping how they really work today, the demo, the proposal. The AI does the research and the drafting. I keep every step that has my name on it.
+
+I have not tested it with real clients yet, and I would rather say that than pretend otherwise. Building it was the easy part. The real test is whether a stranger reads that first email and writes back.
+
+A lot of sales teams seem to be landing in the same place this year: AI for research and drafts, a person for anything a customer reads or hears.
+
+Testing it is my next step. I will share what happens.
+
+If you have tried outreach like this, what surprised you most once real people started replying?
+
+#AIAutomation #ClaudeCode

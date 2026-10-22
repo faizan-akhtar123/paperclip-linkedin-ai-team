@@ -1,0 +1,19 @@
+.env
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+node_modules/
+paperclip-workspace/
+
+# Private data: never push (see README "What is not in this repo")
+O_Auth_Token.txt
+*token*.txt
+context/
+sessions/
+Indeed.profile.txt
+Executive Assistant Initialize Prompt.txt
+paperclip_claudecode.png
+projects/linkedin-branding/project-facts.md
+projects/linkedin-branding/engagement/
+projects/linkedin-branding/analytics/
+Paperclip-Start-Steps.txt

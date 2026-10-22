@@ -1,0 +1,21 @@
+For the last three weeks, a small agent has done the boring half of my job search.
+
+Every morning after my workout, around 11, I run something I built with Claude Code.
+
+It checks the careers pages of Indian companies hiring for entry level AI automation roles. It drops every job it has already shown me. It scores the new ones against my CV. For anything above 60 percent, it tailors a version of my CV and logs exactly what it changed.
+
+Eight briefs so far. 67 new roles found. 45 tailored CVs.
+
+A few companies replied, and I have now cleared first round interviews with some of them.
+
+There is one step I did not automate: pressing apply.
+
+A lot of tools now promise job search on autopilot. Find, tailor, submit, repeat. I understand the appeal. But recruiters are adding their own filters for applications nobody really read.
+
+So the agent does the 80 percent. It searches, filters, scores and drafts. I do the 20 percent. I read each role, decide if I actually want it, and send it myself.
+
+That is the same split I use when I build automation for businesses. Let the machine take the repetitive work. Keep a human on the decisions that carry your name.
+
+Would you let an agent submit job applications for you, or would you keep that step for yourself?
+
+#AIAutomation #ClaudeCode #JobSearch

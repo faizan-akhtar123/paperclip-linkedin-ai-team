@@ -1,0 +1,21 @@
+Before I built anything with AI, I spent four years as an HVAC and MEP coordinator on construction sites in Dubai.
+
+My job sat between a lot of people. The consultant, the main contractor, the site team and the suppliers. Each had their own drawings, their own deadlines and their own idea of what was urgent.
+
+The hard part was never the engineering. It was the information.
+
+A duct would clash with a pipe on site because one team was working from an old drawing. Nobody had done anything wrong. The work still stopped.
+
+So I kept one clear record: what changed, who needed to know, and by when. I followed up every day instead of waiting for problems to find me. Over time, the rework in my areas went down.
+
+I did not know it then, but I was doing process mapping.
+
+A lot of AI agent projects today stall for the same reason those sites did. Teams automate the process as it looks on paper, not the way it actually runs. The agent works on the clean version and breaks on the real one.
+
+So before I build anything now, I do what I did on site. I write out every step as it really happens, I find where the information breaks, and I look for the one task that repeats every day with no judgment in it. That task goes to the machine. The decisions stay with people.
+
+Most business problems are not hard problems. They are the same small task, done by hand, again and again, with information getting lost in between.
+
+If you moved into tech from operations, sales or the trades, which habit from your old job do you still use?
+
+#AIAutomation #ProcessImprovement #CareerChange
